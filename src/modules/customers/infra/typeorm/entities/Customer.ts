@@ -6,7 +6,9 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
+@Entity('customers')
 class Customer {
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   name: string;
