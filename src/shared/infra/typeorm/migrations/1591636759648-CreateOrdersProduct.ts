@@ -5,7 +5,7 @@ export default class CreateOrdersProduct1591636759648
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'orders_product',
+        name: 'orders_products',
         columns: [
           {
             name: 'id',
@@ -13,27 +13,24 @@ export default class CreateOrdersProduct1591636759648
             isPrimary: true,
             generationStrategy: 'uuid',
             default: 'uuid_generate_v4()',
-            comment: 'product primary key',
           },
           {
             name: 'product_id',
             type: 'uuid',
-            isNullable: false,
           },
           {
             name: 'order_id',
             type: 'uuid',
-            isNullable: false,
           },
           {
             name: 'price',
-            type: 'decimal(12,2)',
-            isNullable: false,
+            type: 'decimal',
+            precision: 10,
+            scale: 2,
           },
           {
             name: 'quantity',
-            type: 'integer',
-            isNullable: false,
+            type: 'int',
           },
           {
             name: 'created_at',
@@ -44,24 +41,6 @@ export default class CreateOrdersProduct1591636759648
             name: 'updated_at',
             type: 'timestamp',
             default: 'now()',
-          },
-        ],
-        foreignKeys: [
-          {
-            name: 'OrderProductxOrdersFK',
-            referencedTableName: 'orders',
-            referencedColumnNames: ['id'],
-            columnNames: ['order_id'],
-            onDelete: 'CASCADE',
-            onUpdate: 'CASCADE',
-          },
-          {
-            name: 'OrderProductxProductFK',
-            referencedTableName: 'products',
-            referencedColumnNames: ['id'],
-            columnNames: ['product_id'],
-            onDelete: 'CASCADE',
-            onUpdate: 'CASCADE',
           },
         ],
       }),

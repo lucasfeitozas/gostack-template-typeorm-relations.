@@ -12,12 +12,10 @@ export default class CreateOrders1591636078473 implements MigrationInterface {
             isPrimary: true,
             generationStrategy: 'uuid',
             default: 'uuid_generate_v4()',
-            comment: 'product primary key',
           },
           {
             name: 'customer_id',
             type: 'uuid',
-            isNullable: false,
           },
           {
             name: 'created_at',
@@ -32,11 +30,11 @@ export default class CreateOrders1591636078473 implements MigrationInterface {
         ],
         foreignKeys: [
           {
-            name: 'CustomerOrderFK',
+            name: 'CustomerFK',
             referencedTableName: 'customers',
             referencedColumnNames: ['id'],
             columnNames: ['customer_id'],
-            onDelete: 'CASCADE',
+            onDelete: 'SET NULL',
             onUpdate: 'CASCADE',
           },
         ],

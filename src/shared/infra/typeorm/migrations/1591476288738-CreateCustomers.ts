@@ -13,17 +13,15 @@ export default class CreateCustomers1591476288738
             isPrimary: true,
             generationStrategy: 'uuid',
             default: 'uuid_generate_v4()',
-            comment: 'customers primary key',
           },
           {
             name: 'name',
             type: 'varchar',
-            isNullable: false,
           },
           {
             name: 'email',
             type: 'varchar',
-            isNullable: false,
+            isUnique: true,
           },
           {
             name: 'created_at',

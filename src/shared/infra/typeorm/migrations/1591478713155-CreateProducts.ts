@@ -12,22 +12,20 @@ export default class CreateProducts1591478713155 implements MigrationInterface {
             isPrimary: true,
             generationStrategy: 'uuid',
             default: 'uuid_generate_v4()',
-            comment: 'product primary key',
           },
           {
             name: 'name',
             type: 'varchar',
-            isNullable: false,
           },
           {
             name: 'price',
-            type: 'decimal(12,2)',
-            isNullable: false,
+            type: 'decimal',
+            precision: 10,
+            scale: 2,
           },
           {
             name: 'quantity',
-            type: 'integer',
-            isNullable: false,
+            type: 'int',
           },
           {
             name: 'created_at',
